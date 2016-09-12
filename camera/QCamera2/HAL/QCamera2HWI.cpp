@@ -6619,6 +6619,7 @@ int32_t QCamera2HardwareInterface::processPrepSnapshotDoneEvent(
 int32_t QCamera2HardwareInterface::processASDUpdate(
         __unused cam_asd_decision_t asd_decision)
 {
+#ifndef VANILLA_HAL
     if ( msgTypeEnabled(CAMERA_MSG_META_DATA) ) {
         size_t data_len = sizeof(cam_auto_scene_t);
         size_t buffer_len = 1 *sizeof(int)       //meta type
@@ -6626,7 +6627,7 @@ int32_t QCamera2HardwareInterface::processASDUpdate(
                 + data_len;            //data
         camera_memory_t *asdBuffer = mGetMemory(-1,
                 buffer_len, 1, mCallbackCookie);
-#ifndef VANILLA_HAL
+
         if ( NULL == asdBuffer ) {
             LOGE("Not enough memory for histogram data");
             return NO_MEMORY;
@@ -6651,8 +6652,8 @@ int32_t QCamera2HardwareInterface::processASDUpdate(
             LOGE("fail sending notification");
             asdBuffer->release(asdBuffer);
         }
-#endif
     }
+#endif
     return NO_ERROR;
 }
 

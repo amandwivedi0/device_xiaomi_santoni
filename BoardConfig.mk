@@ -30,6 +30,7 @@ TARGET_TS_MAKEUP := true
 # Kernel
 TARGET_KERNEL_CONFIG := santoni_treble_defconfig
 TARGET_KERNEL_VERSION := 4.9
+TARGET_COMPILE_WITH_MSM_KERNEL := true
 
 # Init
 TARGET_INIT_VENDOR_LIB         := libinit_santoni

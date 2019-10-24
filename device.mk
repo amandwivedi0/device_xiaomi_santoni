@@ -19,6 +19,11 @@ DEVICE_PATH := $(LOCAL_PATH)
 # Inherit from msm8937-common
 $(call inherit-product, device/xiaomi/msm8937-common/msm8937.mk)
 
+#HAls
+PRODUCT_SOONG_NAMESPACES += hardware/qcom-caf/msm8996/display
+PRODUCT_SOONG_NAMESPACES += hardware/qcom-caf/msm8996/audio
+PRODUCT_SOONG_NAMESPACES += hardware/qcom-caf/msm8996/media
+
 # Audio
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \

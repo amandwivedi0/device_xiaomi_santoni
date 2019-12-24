@@ -16,22 +16,16 @@
 
 $(call inherit-product, device/xiaomi/santoni/full_santoni.mk)
 
-# Inherit some common Havoc-OS stuff.
-$(call inherit-product, vendor/havoc/config/common_full_phone.mk)
+# Inherit some common Coltos stuff.
+$(call inherit-product, vendor/colt/config/common.mk)
 
 PRODUCT_DEVICE := santoni
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi 4
-PRODUCT_NAME := havoc_santoni
+PRODUCT_NAME := colt_santoni
 BOARD_VENDOR := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi
 
-# Official
-export export HAVOC_BUILD_TYPE=Official
-
-# Maintainer
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.havoc.maintainer=STARGAZER
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280

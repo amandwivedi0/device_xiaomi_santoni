@@ -26,6 +26,9 @@ PRODUCT_NAME := colt_santoni
 BOARD_VENDOR := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi
 
+# Build Type
+COLT_BUILD_TYPE := Official
+
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280

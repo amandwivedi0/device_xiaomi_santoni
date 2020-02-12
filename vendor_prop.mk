@@ -51,39 +51,6 @@ persist.bluetooth.a2dp_offload.disabled=true
 # Boot
 PRODUCT_PROPERTY_OVERRIDES += \
 sys.vendor.shutdown.waittime=500
-    camera.disable_zsl_mode=1 \
-    persist.vendor.camera.display.umax=1920x1080 \
-    persist.vendor.camera.display.lmax=1280x720 \
-    camera.mot.startup_probing=0 \
-    persist.camera.debug.logfile=0 \
-    persist.camera.gyro.disable=0 \
-    persist.camera.eis.enable=1 \
-    persist.camera.HAL3.enabled=1 \
-    persist.camera.is_mode=4 \
-    camera.is_mode=4 \
-    persist.camera.disable_zsl_mode=1 \
-    camera.disable_zsl_mode=1 \
-    persist.camera.gyro.android=4 \
-    camera.gyro.android=4 \
-    persist.camera.tof.direct=1 \
-    camera.tof.direct=1 \
-    persist.camera.tnr.preview=1 \
-    camera.tnr.preview=1 \
-    persist.camera.tnr.video=1 \
-    camera.tnr.video=1 \
-    ro.camera.notify_nfc=1 \
-    camera.notify_nfc=1 \
-    persist.camera.expose.aux=1 \
-    vidc.enc.dcvs.extra-buff-count=2 \
-    vendor.vidc.enc.disable_bframes=1 \
-    vendor.vidc.disable.split.mode=1 \
-    vendor.vidc.enc.disable.pq=true \
-    vendor.vidc.dec.downscalar_width=1920 \
-    vendor.vidc.dec.downscalar_height=1088 \
-    vidc.dec.disable.split.cpu=1 \
-    video.disable.ubwc=1 \
-    vendor.camera.aux.packagelist=com.motorola.camera2,com.google.android.Pixel2Mod \
-    camera.hal1.packagelist=com.instagram.android,com.whatsapp
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -100,11 +67,6 @@ persist.vendor.qti.telephony.vt_cam_interface=1 \
 media.camera.ts.monotonic=1 \
 persist.camera.HAL3.enabled=1
 
-    persist.cne.feature=1 \
-    persist.cne.logging.qxdm=3974 \
-    persist.cne.rat.wlan.chip.oem=WCN \
-    persist.dpm.feature=0 \
-    persist.sys.cnd.iwlan=1
 
 # Cne/Dpm
 PRODUCT_PROPERTY_OVERRIDES += \

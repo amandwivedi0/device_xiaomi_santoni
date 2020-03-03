@@ -486,11 +486,6 @@
 
     <!-- Button backlight -->
     <integer name="config_buttonBrightnessSettingDefault">0</integer>
-	
-    <!-- Enables or disables haptic effect when the text insertion/selection handle is moved
-         manually by the user. Off by default, since the expected haptic feedback may not be
-         available on some devices. -->
-    <bool name="config_enableHapticTextHandle">true</bool>
 
     <!-- Do not translate. Default access point SSID used for tethering -->
     <string name="wifi_tether_configure_ssid_default" translatable="false">Redmi 4x</string> 

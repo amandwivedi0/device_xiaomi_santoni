@@ -493,4 +493,7 @@
 
     <!-- Do not translate. Default access point SSID used for tethering -->
     <string name="wifi_tether_configure_ssid_default" translatable="false">Redmi 4x</string> 
+	
+    <!-- Smart Chagring -->
+    <bool name="config_smartChargingAvailable">true</bool>
 </resources>

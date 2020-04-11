@@ -29,6 +29,9 @@ PRODUCT_MANUFACTURER := Xiaomi
 # Build Type
 COLT_BUILD_TYPE := Official
 
+# Maintainer
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.colt.maintainer=Aman_dwivedi
 
 # Boot animation
 TARGET_BOOT_ANIMATION_RES := 720x1280

@@ -14,4 +14,8 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_santoni.mk
+    $(LOCAL_DIR)/bootleg_santoni.mk
+
+COMMON_LUNCH_CHOICES := \
+  	bootleg_santoni-userdebug \
+        bootleg_santoni-user

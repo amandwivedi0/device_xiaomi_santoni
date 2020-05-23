@@ -47,3 +47,11 @@ PRODUCT_COPY_FILES += \
 
 # Inherit proprietary files
 $(call inherit-product, vendor/xiaomi/santoni/santoni-vendor.mk)
+
+# perf
+$(call inherit-product-if-exists, vendor/qcom/common/perf/perf-vendor.mk)
+TARGET_COMMON_QTI_COMPONENTS := perf
+
+PRODUCT_BOOT_JARS += \
+    QPerformance \
+    UxPerformance

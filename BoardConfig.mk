@@ -29,6 +29,9 @@ TARGET_TS_MAKEUP := true
 
 # Kernel
 TARGET_KERNEL_CONFIG := santoni_defconfig
+TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_CLANG_VERSION := 383902
+CROSS_COMPILE := $(PWD)/prebuilts/clang/host/linux-x86/clang-r383902
 
 # Init
 TARGET_INIT_VENDOR_LIB         := libinit_santoni

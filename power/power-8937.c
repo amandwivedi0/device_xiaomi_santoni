@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, 2018, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2015,2018 The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -60,18 +60,18 @@ const int kMaxInteractiveDuration = 5000; /* ms */
 const int kMaxLaunchDuration = 5000;      /* ms */
 
 /**
- * Returns true if the target is SDM632.
+ * Returns true if the target is SDM439/SDM429.
  */
-static bool is_target_SDM632(void) {
-    static int is_SDM632 = -1;
+static bool is_target_SDM439(void) {
+    static int is_SDM439 = -1;
     int soc_id;
 
-    if (is_SDM632 >= 0) return is_SDM632;
+    if (is_SDM439 >= 0) return is_SDM439;
 
     soc_id = get_soc_id();
-    is_SDM632 = soc_id == 349 || soc_id == 350;
+    is_SDM439 = soc_id == 353 || soc_id == 363 || soc_id == 354 || soc_id == 364;
 
-    return is_SDM632;
+    return is_SDM439;
 }
 
 static int process_video_encode_hint(void* metadata) {
@@ -97,14 +97,14 @@ static int process_video_encode_hint(void* metadata) {
 
     if (video_encode_metadata.state == 1) {
         if (is_schedutil_governor(governor)) {
-            if (is_target_SDM632()) {
+            if (is_target_SDM439()) {
                 /* sample_ms = 10mS
                  * SLB for Core0 = -6
                  * SLB for Core1 = -6
                  * SLB for Core2 = -6
                  * SLB for Core3 = -6
                  * hispeed load = 95
-                 * hispeed freq = 1036 */
+                 * hispeed freq = 998Mhz */
                 int resource_values[] = {CPUBW_HWMON_SAMPLE_MS,
                                          0xa,
                                          0x40c68100,
@@ -118,7 +118,7 @@ static int process_video_encode_hint(void* metadata) {
                                          0x41440100,
                                          0x5f,
                                          0x4143c100,
-                                         0x40c};
+                                         0x3e6};
                 if (!video_encode_hint_sent) {
                     perform_hint_action(video_encode_metadata.hint_id, resource_values,
                                         ARRAY_SIZE(resource_values));
@@ -139,8 +139,11 @@ static int process_video_encode_hint(void* metadata) {
             /* Sched_load and migration_notification disable
              * timer rate - 40mS*/
             int resource_values[] = {INT_OP_CLUSTER0_USE_SCHED_LOAD,      0x1,
+                                     INT_OP_CLUSTER1_USE_SCHED_LOAD,      0x1,
                                      INT_OP_CLUSTER0_USE_MIGRATION_NOTIF, 0x1,
-                                     INT_OP_CLUSTER0_TIMER_RATE,          BIG_LITTLE_TR_MS_40};
+                                     INT_OP_CLUSTER1_USE_MIGRATION_NOTIF, 0x1,
+                                     INT_OP_CLUSTER0_TIMER_RATE,          BIG_LITTLE_TR_MS_40,
+                                     INT_OP_CLUSTER1_TIMER_RATE,          BIG_LITTLE_TR_MS_40};
             if (!video_encode_hint_sent) {
                 perform_hint_action(video_encode_metadata.hint_id, resource_values,
                                     ARRAY_SIZE(resource_values));
@@ -249,7 +252,9 @@ int set_interactive_override(int on) {
     if (!on) {
         /* Display off */
         if (is_interactive_governor(governor)) {
-            int resource_values[] = {INT_OP_CLUSTER0_TIMER_RATE, BIG_LITTLE_TR_MS_40};
+            int resource_values[] = {INT_OP_CLUSTER0_TIMER_RATE, BIG_LITTLE_TR_MS_50,
+                                     INT_OP_CLUSTER1_TIMER_RATE, BIG_LITTLE_TR_MS_50,
+                                     INT_OP_NOTIFY_ON_MIGRATE,   0x00};
             perform_hint_action(DISPLAY_STATE_HINT_ID, resource_values,
                                 ARRAY_SIZE(resource_values));
         }

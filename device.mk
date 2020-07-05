@@ -34,6 +34,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fingerprint.msm8937 \
 
+#HALs
+PRODUCT_SOONG_NAMESPACES += hardware/qcom-caf/msm8996/display
+PRODUCT_SOONG_NAMESPACES += hardware/qcom-caf/msm8996/audio
+PRODUCT_SOONG_NAMESPACES += hardware/qcom-caf/msm8996/media
+
 # Init scripts
 PRODUCT_PACKAGES += \
     init.device.rc \

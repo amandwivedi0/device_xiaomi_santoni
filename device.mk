@@ -30,6 +30,19 @@ PRODUCT_PACKAGES += \
     libmm-qcamera \
     camera2
 
+#GAPPS config
+GAPPS_VARIANT := mini
+
+GAPPS_EXCLUDED_PACKAGES += \
+PlusOne \
+Hangouts
+
+GAPPS_PRODUCT_PACKAGES += \
+    GoogleDialer \
+    GoogleContacts \
+    PrebuiltBugle \
+    LatinImeGoogle
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     fingerprint.msm8937 \
@@ -53,3 +66,4 @@ PRODUCT_COPY_FILES += \
 
 # Inherit proprietary files
 $(call inherit-product, vendor/xiaomi/santoni/santoni-vendor.mk)
+$(call inherit-product, vendor/opengapps/build/opengapps-packages.mk)

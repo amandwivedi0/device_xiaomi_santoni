@@ -846,6 +846,9 @@ service esepmdaemon /vendor/bin/esepmdaemon
     user system
     group nfc
 
+# Start RIL daemon
+start ril-daemon
+
 # Seemp health service
 service seemp_healthd /vendor/bin/seemp_healthd
     class late_start

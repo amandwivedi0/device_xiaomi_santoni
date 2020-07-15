@@ -1,5 +1,5 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/colt_santoni.mk
+    $(LOCAL_DIR)/du_santoni.mk
 
 COMMON_LUNCH_CHOICES := \
-    colt_santoni-userdebug
+    du_santoni-userdebug

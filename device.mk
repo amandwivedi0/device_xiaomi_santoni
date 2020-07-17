@@ -425,15 +425,12 @@ PRODUCT_PACKAGES += \
     qti-telephony-utils \
     qti_telephony_utils.xml \
     ims-ext-common \
-    ims_ext_common.xml
+    ims_ext_common.xml \
     telephony-ext
 
 # fwk_detect
 PRODUCT_PACKAGES += \
 	libqti_vndfwk_detect
-
-#PRODUCT_BOOT_JARS += \
-    telephony-ext
 
 #PRODUCT_BOOT_JARS += \
     telephony-ext

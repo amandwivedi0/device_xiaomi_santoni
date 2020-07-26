@@ -20,19 +20,32 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 
-# Inherit some common Bootleggers stuff
-$(call inherit-product, vendor/bootleggers/config/common_full_phone.mk)
+# Inherit some common omni stuff
+$(call inherit-product, vendor/omni/config/common.mk)
+
+# Get the prebuilt list of APNs
+$(call inherit-product, vendor/omni/config/gsm.mk)
+
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+
+
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 # Inherit from santoni device
 $(call inherit-product, device/xiaomi/santoni/device.mk)
 
-BOOTLEGGERS_BUILD_TYPE := Sadness
+# must be before including omni part
+TARGET_BOOTANIMATION_SIZE := 720p
+
+# Additional packages
+PRODUCT_EXCLUDE_EXTRA_PACKAGES := true
 
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi 4X
 PRODUCT_DEVICE := santoni
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_NAME := bootleg_santoni
+PRODUCT_NAME := omni_santoni
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 

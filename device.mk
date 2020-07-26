@@ -33,6 +33,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fingerprint.msm8937 \
 
+# HALs
+PRODUCT_SOONG_NAMESPACES += hardware/qcom/display-caf-msm8996
+PRODUCT_SOONG_NAMESPACES += hardware/qcom/media-caf-msm8996
+PRODUCT_SOONG_NAMESPACES += hardware/qcom/audio-caf-msm8996
+
 # Init scripts
 PRODUCT_PACKAGES += \
     init.device.rc \
@@ -44,6 +49,12 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/keylayout/gf3208.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gf3208.kl \
     $(DEVICE_PATH)/keylayout/msm8920-sku7-snd-card_Button_Jack.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/msm8920-sku7-snd-card_Button_Jack.kl \
     $(DEVICE_PATH)/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl
+
+# Omni Target
+TARGET_QCOM_DISPLAY_VARIANT := caf-msm8996
+TARGET_QCOM_AUDUO_VARIANT := caf-msm8996
+TARGET_QCOM_MEDIA_VARIANT := caf-msm8996
+TARGET_QCOM_BLUETOOTH_VARIANT := caf-msm8996
 
 # Inherit proprietary files
 $(call inherit-product, vendor/xiaomi/santoni/santoni-vendor.mk)

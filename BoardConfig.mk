@@ -30,6 +30,8 @@ TARGET_TS_MAKEUP := true
 # Kernel
 TARGET_KERNEL_CONFIG := santoni_defconfig
 TARGET_KERNEL_VERSION := 4.9
+TARGET_KERNEL_HEADERS := kernel/xiaomi/msm8937
+TARGET_KERNEL_HEADER_ARCH := arm64
 
 # Init
 TARGET_INIT_VENDOR_LIB         := libinit_santoni

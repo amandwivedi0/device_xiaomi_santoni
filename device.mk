@@ -19,6 +19,11 @@ DEVICE_PATH := $(LOCAL_PATH)
 # Inherit from msm8937-common
 $(call inherit-product, device/xiaomi/msm8937-common/msm8937.mk)
 
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES := $(LOCAL_PATH)
+PRODUCT_USES_QCOM_HARDWARE := true
+PRODUCT_BOARD_PLATFORM := msm8996
+
 #HAls
 PRODUCT_SOONG_NAMESPACES += hardware/qcom-caf/msm8996/display
 PRODUCT_SOONG_NAMESPACES += hardware/qcom-caf/msm8996/audio

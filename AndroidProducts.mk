@@ -14,8 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/arrow_santoni.mk
+    $(LOCAL_DIR)/statix_santoni.mk
 
 COMMON_LUNCH_CHOICES := \
-	arrow_santoni-userdebug \
-        arrow_santoni-user
+	statix_santoni-userdebug \
+        statix_santoni-user \
+        statix_santoni-eng

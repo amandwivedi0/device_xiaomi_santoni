@@ -36,6 +36,8 @@
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 #include <sys/sysinfo.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 
 #include <android-base/file.h>
 #include <android-base/properties.h>
@@ -53,6 +55,39 @@ typedef struct {
     char const *heapminfree;
     char const *heapmaxfree;
 } dalvikprop_t;
+
+/* From Magisk@jni/magiskhide/hide_utils.c */
+static const char *snet_prop_key[] = {
+  "ro.boot.vbmeta.device_state",
+  "ro.boot.verifiedbootstate", 
+  "ro.boot.flash.locked",
+  "ro.boot.selinux",
+  "ro.boot.veritymode",
+  "ro.boot.warranty_bit",
+  "ro.warranty_bit",
+  "ro.debuggable",
+  "ro.secure",
+  "ro.build.type",
+  "ro.build.tags",
+  "ro.build.selinux",
+  NULL
+};
+
+static const char *snet_prop_value[] = {
+  "locked",
+  "green",
+  "1",
+  "enforcing",
+  "enforcing",
+  "0",
+  "0",
+  "0",
+  "1",
+  "user",
+  "release-keys",
+  "1",
+  NULL
+};
 
 static void property_override(char const prop[], char const value[]) {
     prop_info *pi;
@@ -116,6 +151,17 @@ static void init_target_properties() {
     }
 }
 
+static void workaround_snet_properties() {
+
+  // Hide all sensitive props
+  for (int i = 0; snet_prop_key[i]; ++i) {
+    property_override(snet_prop_key[i], snet_prop_value[i]);
+  }
+
+  chmod("/sys/fs/selinux/enforce", 0640);
+  chmod("/sys/fs/selinux/policy", 0440);
+}
+
 void vendor_load_properties() {
     dalvikprop_t dprop;
     check_device(&dprop);
@@ -128,4 +174,8 @@ void vendor_load_properties() {
     property_override("dalvik.vm.heapmaxfree", dprop.heapmaxfree);
 
     init_target_properties();
+
+// Workaround SafetyNet
+workaround_snet_properties();
+
 }

@@ -20,8 +20,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 
-# Inherit some common ArrowOS stuff
-$(call inherit-product, vendor/arrow/config/common.mk)
+# Inherit some common SyberiaOS stuff
+$(call inherit-product, vendor/syberia//common.mk)
+
+# Allow vendor/extra to override any property by setting it first
+$(call inherit-product-if-exists, vendor/extra/product.mk)
 
 # Inherit from santoni device
 $(call inherit-product, device/xiaomi/santoni/device.mk)
@@ -30,7 +33,9 @@ PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi 4X
 PRODUCT_DEVICE := santoni
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_NAME := arrow_santoni
+PRODUCT_NAME := syberia_santoni
+
+TARGET_BOOT_ANIMATION_RES := 720
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 

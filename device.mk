@@ -29,6 +29,10 @@ PRODUCT_PACKAGES += \
     camera.msm8937 \
     libmm-qcamera
 
+# Board
+PRODUCT_USES_QCOM_HARDWARE := true
+PRODUCT_BOARD_PLATFORM := msm8937
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.custom \

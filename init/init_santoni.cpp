@@ -99,6 +99,12 @@ static void property_override(char const prop[], char const value[]) {
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
+void property_override_dual(char const system_prop[], char const vendor_prop[], const char value[])
+{
+        property_override(system_prop, value);
+        property_override(vendor_prop, value);
+}
+
 static void check_device(dalvikprop_t* dprop) {
     struct sysinfo sys;
 
@@ -172,6 +178,7 @@ void vendor_load_properties() {
     property_override("dalvik.vm.heaptargetutilization", "0.75");
     property_override("dalvik.vm.heapminfree", dprop.heapminfree);
     property_override("dalvik.vm.heapmaxfree", dprop.heapmaxfree);
+    property_override_dual("ro.control_privapp_permissions", "ro.control_privapp_permissions", "log");
 
     init_target_properties();
 

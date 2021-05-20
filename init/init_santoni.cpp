@@ -179,6 +179,8 @@ void vendor_load_properties() {
     property_override("dalvik.vm.heapminfree", dprop.heapminfree);
     property_override("dalvik.vm.heapmaxfree", dprop.heapmaxfree);
     property_override_dual("ro.control_privapp_permissions", "ro.control_privapp_permissions", "log");
+    property_override_dual("ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "google/sunfish/sunfish:11/RQ2A.210505.002/7246365:user/release-keys");
+    property_override_dual("ro.build.fingerprint", "ro.product.build.fingerprint", "google/sunfish/sunfish:11/RQ2A.210505.002/7246365:user/release-keys");
 
     init_target_properties();
 

